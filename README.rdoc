@@ -4,8 +4,8 @@
 
 Scanty is blogging software.  Software for my blog, to be exact:
 http://adam.blog.heroku.com
-- now we can use this to track alerts from papertrail saved search
-
+  - now we can use this to track alerts from papertrail saved search
+  - this will post an entry per saved search and split it by messages in alert
 == Features
 
 * Posts - this will be the main issue here!
