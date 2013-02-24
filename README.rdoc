@@ -27,7 +27,7 @@ Sequel, Maruku, and Syntax are all vendored.
 
 == Setup
 
-git clone git@github.com:golddudu/scanty.git
+git clone git@github.com:golddudu/scanty-papertrail-alerts-blog.git
 sudo apt-get install  rubygems
 gem install sinatra
 sudo apt-get install sqlite
