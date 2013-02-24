@@ -20,13 +20,13 @@ http://adam.blog.heroku.com
 == Dependencies
 
   - required, if not already installed 
-1.git clone git@github.com:golddudu/scanty-papertrail-alerts-blog.git
-2.apt-get install  rubygems
-3.apt-get install ruby-full
-4.apt-get install libsqlite3-dev
-5.gem install sqlite3-ruby
-6.gem install rdoc
-7.gem install sinatra
+  1.git clone git@github.com:golddudu/scanty-papertrail-alerts-blog.git
+  2.apt-get install  rubygems
+  3.apt-get install ruby-full
+  4.apt-get install libsqlite3-dev
+  5.gem install sqlite3-ruby
+  6.gem install rdoc
+  7.gem install sinatra
 
 Sequel, Maruku, and Syntax are all vendored.
 
@@ -54,8 +54,9 @@ different port.
 
 == in papertrail app side
 
-after saving search - go to the alerts manage window - setup the webhook post url to:
-[your-server-url:4567/alert]
+  after saving search - go to the alerts manage window
+  - setup the webhook post url to:
+    [your-server-url:4567/alert]
 
 == Database
 
