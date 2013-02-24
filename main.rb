@@ -99,8 +99,7 @@ get '/posts/new' do
 	auth
 	erb :edit, :locals => { :post => Post.new, :url => '/posts' }
 end
-
-post '/posts' do
+post '/alert' do
         auth
 	obj = JSON.parse(params[:payload])
 	#print obj['events'][0]['message']
@@ -109,7 +108,7 @@ post '/posts' do
 	array.each_with_index { |x,i| s << "\n #{i+1}) " << x['message'] << "\n"}
 
 	s << "\n " << obj['tml_search_url'].to_s()
-        post = Post.new :title => 'Exception Report ' + Time.now.asctime, :tags => 'exception', :body => s,
+        post = Post.new :title => 'Alert Report ' + Time.now.asctime, :tags => 'exception', :body => s,
  			:created_at => Time.now, :slug => Post.make_slug(Time.now.asctime)
         post.save
         return [200, {}, [""]]
