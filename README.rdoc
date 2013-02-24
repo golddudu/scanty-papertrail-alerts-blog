@@ -27,6 +27,18 @@ Sequel, Maruku, and Syntax are all vendored.
 
 == Setup
 
+git clone git@github.com:golddudu/scanty.git
+sudo apt-get install  rubygems
+gem install sinatra
+sudo apt-get install sqlite
+gem install sqlite3
+apt-get install libsqlite3-dev
+apt-get install build-essential
+apt-get install ruby-full
+apt-get install ruby1.8-dev
+gem install sqlite3-ruby
+
+
 Edit main.rb and change the Blog config struct at the top to your liking.  For
 security purposes, change the admin password and the admin cookie key and
 value.  These last two can be set to any random value you like, just choose
