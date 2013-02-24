@@ -1,16 +1,14 @@
-= Scanty, a really small blog
+= using Scanty, a really small blog, to tack alerts from papertrail saved search
 
 == Overview
 
 Scanty is blogging software.  Software for my blog, to be exact:
 http://adam.blog.heroku.com
-
-It is not a blogging engine, but it's small and easy to modify, so it could be
-the starting point for your blog, too.
+- now we can use this to track alerts from papertrail saved search
 
 == Features
 
-* Posts (shock!)
+* Posts - this will be the main issue here!
 * Tags
 * Markdown (via Maruku)
 * Ruby code syntax highlighting (via Syntax)
@@ -21,28 +19,25 @@ the starting point for your blog, too.
 
 == Dependencies
 
-  $ gem install sinatra
+  - required, if not already installed 
+1.git clone git@github.com:golddudu/scanty-papertrail-alerts-blog.git
+2.apt-get install  rubygems
+3.apt-get install ruby-full
+4.apt-get install libsqlite3-dev
+5.gem install sqlite3-ruby
+6.gem install rdoc
+7.gem install sinatra
 
 Sequel, Maruku, and Syntax are all vendored.
 
 == Setup
 
-git clone git@github.com:golddudu/scanty-papertrail-alerts-blog.git
-sudo apt-get install  rubygems
-gem install sinatra
-sudo apt-get install sqlite
-gem install sqlite3
-apt-get install libsqlite3-dev
-apt-get install build-essential
-apt-get install ruby-full
-apt-get install ruby1.8-dev
-gem install sqlite3-ruby
-
-
 Edit main.rb and change the Blog config struct at the top to your liking.  For
 security purposes, change the admin password and the admin cookie key and
 value.  These last two can be set to any random value you like, just choose
 something other than the default.
+
+under post /alert - it posts the saved search webhok message to the blog
 
 Then run the server:
 
@@ -57,6 +52,11 @@ In production, you'll probably want to run "rake start" to start (and restart)
 the server.  Change the value of "port" at the top of the Rakefile to run on a
 different port.
 
+== in papertrail app side
+
+after saving search - go to the alerts manage window - setup the webhook post url to:
+[your-server-url:4567/alert]
+
 == Database
 
 The default is a SQLite file named blog.db.  To use something else, set
@@ -68,17 +68,6 @@ Or, modify the Sequel.connect statement at the top of main.rb.
 
 The database will be created automatically when the server is executed.
 
-== Comments
-
-There are no comments by default.  If you wish to activate comments, create an
-account and a website on Disqus (disqus.com) and enter the website shortname as
-the :disqus_shortname value in the Blog config struct.
-
-== Import data
-
-Christopher Swenson has a Wordpress importer: http://github.com/swenson/scanty_wordpress_import
-
-Other kinds of data can be imported easily, take a look at the rake task :import for an example of loading from a YAML file with field names that match the database schema.
 
 == Customize
 
